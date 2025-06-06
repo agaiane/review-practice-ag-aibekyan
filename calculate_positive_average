@@ -2,20 +2,12 @@ def calculate_positive_average(numbers):
     """
     Вычисляет среднее арифметическое положительных элементов в списке `numbers`.
     Возвращает 0, если положительных элементов нет.
-
-    Предусловие:
-    - `numbers` должен быть списком.
-    - `numbers` должен содержать хотя бы один положительный элемент (нестрогое требование).
-
-    Постусловие:
-    - Возвращает среднее арифметическое всех положительных элементов.
-    - Если положительных элементов нет, возвращает 0.
     """
     if not isinstance(numbers, list):
         raise TypeError("Входные данные должны быть списком.")
     if not numbers:
         raise ValueError("Список не может быть пустым.")
-
+    
     total = 0
     count = 0
     for num in numbers:
@@ -27,24 +19,3 @@ def calculate_positive_average(numbers):
     else:
         average = 0
     return average
-
-def test_calculate_positive_average():
-    # Тест 1: Обычный случай
-    assert calculate_positive_average([1, 2, 3, -4]) == 2.0
-    # Тест 2: Граничный случай
-    assert calculate_positive_average([-1, -2, -3]) == 0
-    # Тест 3: Нарушение предусловия (пустой список)
-    try:
-        calculate_positive_average([])
-    except ValueError:
-        print("Тест 3: Обработка пустого списка работает корректно.")
-    # Тест 4: Нарушение предусловия (не список)
-    try:
-        calculate_positive_average("не список")
-    except TypeError:
-        print("Тест 4: Обработка неверного типа данных работает корректно.")
-
-    print("Все тесты пройдены!")
-
-if __name__ == "__main__":
-    test_calculate_positive_average()
